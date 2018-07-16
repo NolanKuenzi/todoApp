@@ -48,10 +48,6 @@ class MyTodoApp extends React.Component {
       alert("Invalid Input");
       return;
     }
-    if (this.state.input === "") {
-      alert("Please Enter a Todo Task");
-      return;
-    }
     for (let i = 0; i < this.state.items.length; i++) {
       if (this.state.input === this.state.items[i]) {
         alert("Cannot Enter Same Task Twice");
