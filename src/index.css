@@ -69,8 +69,6 @@ button:hover {
 
 }
 
-
-
 #updateForm {
 	height: 14em;
 	width: 14em;
@@ -81,29 +79,38 @@ button:hover {
 	top: 20em;
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
+
 }
 
 #updateInput {
 	width: 12em;
 	position: relative;
-	top: 4em;
-	left: 4em;
-	
+	top: 7em;
+	margin: auto;
+}
+
+#ubd {
+	width: 100%;
+	text-align: center;
 }
 
 #updateButton {
-	position: relative;
-	top: 4.5em;
+	top: 8em;
 	width: 6em;
-	left: 7.5em;
+	height: 2em;
+	position: relative;
 	background-color: white;
+	margin: auto;
 }
 
 #closeButton {
 	position: relative;
-	left: 10em;
-	bottom: 1em;
+	float: right;
+	margin-right: 0.5em;
 	height: 2em;
 	width: 3em;
 	text-align: center;
+	background-color: white;
+
 }

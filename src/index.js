@@ -114,7 +114,7 @@ class MyTodoApp extends React.Component {
     
     let Update;
     if (this.state.edit === true) {
-      Update = <form id="updateForm" onSubmit={this.updateItem}><input id="updateInput" value={this.state.updateLi} onChange={this.handleInput}></input> <br /><button id="updateButton">Update</button><button id="closeButton">X</button></form>;
+      Update = <form id="updateForm" onSubmit={this.updateItem}><input id="updateInput" value={this.state.updateLi} onChange={this.handleInput}></input><br /><div id="ubd"><button id="updateButton">Update</button></div><button id="closeButton">X</button></form>;
     } else {
       Update = null;
     }
