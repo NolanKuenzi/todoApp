@@ -1,31 +1,31 @@
 #containerDiv {
-	width: 100%;
+  width: 100%;
 }
 
 h1 {
-	color: blue;
-	text-align: center;
+  color: blue;
+  text-align: center;
 }
 
 #mainForm {
-	position: absolute;
-	width: 100%;
-	top: 22em;
-	left: 0.2em;
-	text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 22em;
+  left: 0.2em;
+  text-align: center;
 }
 
 #mainInput {
-	width: 12em;
-	height: 1.5em;
-	position: relative;
+  width: 12em;
+  height: 1.5em;
+  position: relative;
 }
 
 #itemsUl {
-	position: relative;
-	top: 0.1em;
-	left: 46.2%;
-	list-style-type: none;
+  position: relative;
+  top: 0.1em;
+  left: 46.2%;
+  list-style-type: none;
 }
 
 button:active {
@@ -33,84 +33,81 @@ button:active {
 }
 
 button:focus { 
-	outline: 0;
-	cursor: pointer;
+  outline: 0;
+  cursor: pointer;
 }
 
 button:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 #addButton {
-	width: 6.5em;
-	height: 2em;
-	position: relative;
-	top: 0.5em;
-	background-color: blue;
-	color: white;
+  width: 6.5em;
+  height: 2em;
+  position: relative;
+  top: 0.5em;
+  background-color: blue;
+  color: white;
 }
 
 .editButtons {
-	position: absolute;
-	left: 24em;
-	text-decoration: none;
-	background-color: blue;
-	color: white;
-	border-color: white;
+  position: absolute;
+  left: 24em;
+  text-decoration: none;
+  background-color: blue;
+  color: white;
+  border-color: white;
 }
 
 .deleteButtons {
-	position: absolute;
-	left: 28em;
-	background-color: blue;
-	background-color: blue;
-	color: white;
-	border-color: white;
-
+  position: absolute;
+  left: 28em;
+  background-color: blue;
+  background-color: blue;
+  color: white;
+  border-color: white;
 }
 
 #updateForm {
-	height: 14em;
-	width: 14em;
-	border-color: black;
-	border-radius: .5em;
-	background-color: blue;
-	position: relative;
-	top: 20em;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-
+  height: 14em;
+  width: 14em;
+  border-color: black;
+  border-radius: .5em;
+  background-color: blue;
+  position: relative;
+  top: 20em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 #updateInput {
-	width: 12em;
-	position: relative;
-	top: 7em;
-	margin: auto;
+  width: 12em;
+  position: relative;
+  top: 7em;
+  margin: auto;
 }
 
 #ubd {
-	width: 100%;
-	text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 #updateButton {
-	top: 8em;
-	width: 6em;
-	height: 2em;
-	position: relative;
-	background-color: white;
-	margin: auto;
+  top: 8em;
+  width: 6em;
+  height: 2em;
+  position: relative;
+  background-color: white;
+  margin: auto;
 }
 
 #closeButton {
-	position: relative;
-	float: right;
-	margin-right: 0.5em;
-	height: 2em;
-	width: 3em;
-	text-align: center;
-	background-color: white;
-
+  position: relative;
+  float: right;
+  margin-right: 0.5em;
+  height: 2em;
+  width: 3em;
+  text-align: center;
+  background-color: white;
 }

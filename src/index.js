@@ -5,12 +5,12 @@ import "./index.css";
 class MyTodoApp extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      input: "",
-      items: [],
-      edit: false,
-      originalLi: "",
-      updateLi: ""
+      this.state = {
+        input: "",
+        items: [],
+        edit: false,
+        originalLi: "",
+        updateLi: ""
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,6 +19,7 @@ class MyTodoApp extends React.Component {
     this.updateItem = this.updateItem.bind(this);
     this.closeEdit = this.closeEdit.bind(this);
   }
+  
   handleInput(event) {
     if (event.target.value.length === 31) {
       this.setState({
@@ -41,6 +42,7 @@ class MyTodoApp extends React.Component {
       return;
     }
   }
+  
   handleSubmit(event) {
     event.preventDefault();
     const regEx = /\w/;
@@ -68,11 +70,11 @@ class MyTodoApp extends React.Component {
   }
 
   removeItem(event) {
-      const remove = [...this.state.items];
-      remove.splice(remove.indexOf(event.target.id), 1);
-      this.setState({
-        items: [...remove]
-      });
+    const remove = [...this.state.items];
+    remove.splice(remove.indexOf(event.target.id), 1);
+    this.setState({
+      items: [...remove]
+    });
   }
 
   editItem(event) {
@@ -104,29 +106,27 @@ class MyTodoApp extends React.Component {
   }
 
   render() {
-    
     let list;
     if (this.state.edit !== true) {
       list = this.state.items.map(player => <li key={player}>{player}<button className="editButtons" id={player} onClick={this.editItem}>Edit</button><button className="deleteButtons" id={player} onClick={this.removeItem}>Delete</button></li>);
     } else if (this.state.edit === true) {
       list = this.state.items.map(player => <li key={player}>{player}<button className="editButtons" id={player} onClick={this.editItem}>Edit</button></li>);
     }
-    
     let Update;
     if (this.state.edit === true) {
       Update = <form id="updateForm" onSubmit={this.updateItem}><input id="updateInput" value={this.state.updateLi} onChange={this.handleInput}></input><br /><div id="ubd"><button id="updateButton">Update</button></div><button id="closeButton">X</button></form>;
     } else {
-      Update = null;
+        Update = null;
     }
     return (
       <div id="containerDiv">
         <h1>Todo App</h1>
-        <ul id="itemsUl">{list}</ul>
-        <form id="mainForm" onSubmit={this.handleSubmit}>
-        <input id="mainInput" onChange={this.handleInput} value={this.state.input}></input> <br />
-        <button id="addButton">Add</button>
-        </form>
-        {Update}
+          <ul id="itemsUl">{list}</ul>
+            <form id="mainForm" onSubmit={this.handleSubmit}>
+              <input id="mainInput" onChange={this.handleInput} value={this.state.input}></input> <br />
+              <button id="addButton">Add</button>
+            </form>
+          {Update}
       </div>
     );
   }
