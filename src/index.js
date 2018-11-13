@@ -2,12 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
+let localStorageArr;
+function setLocalStorage() {
+  if (JSON.parse(window.localStorage.getItem("lsArray")) === null) {
+    localStorageArr = [];
+  }
+  else {
+    localStorageArr = JSON.parse(window.localStorage.getItem("lsArray"));
+  }
+}
+setLocalStorage();
+
 class MyTodoApp extends React.Component {
   constructor(props) {
     super(props);
       this.state = {
         input: "",
-        items: [],
+        items: [...localStorageArr],
         edit: false,
         originalLi: "",
         updateLi: ""
@@ -33,7 +44,7 @@ class MyTodoApp extends React.Component {
       this.setState({
         updateLi: event.target.value
       });
-      return;
+        return;
     }
     if (this.state.edit === false) {
       this.setState({
@@ -63,8 +74,10 @@ class MyTodoApp extends React.Component {
       alert("Maximum Number of Tasks Exceeded");
       return;
     }
+    const newInputArr = [...this.state.items, this.state.input];
+    window.localStorage.setItem("lsArray", JSON.stringify(newInputArr));
     this.setState({
-      items: [...this.state.items, this.state.input],
+      items: [...newInputArr],
       input: ""
     });
   }
@@ -72,6 +85,7 @@ class MyTodoApp extends React.Component {
   removeItem(event) {
     const remove = [...this.state.items];
     remove.splice(remove.indexOf(event.target.id), 1);
+    window.localStorage.setItem("lsArray", JSON.stringify(remove));
     this.setState({
       items: [...remove]
     });
@@ -90,13 +104,13 @@ class MyTodoApp extends React.Component {
     const newInfo = [...this.state.items];
     const updatedItem = this.state.items.indexOf(this.state.origLi);
     newInfo[updatedItem] = this.state.updateLi;
-    
+    window.localStorage.setItem("lsArray", JSON.stringify(newInfo));
     this.setState({
       items: [...newInfo],
       edit: false,
       origLi: "",
       updateLi: ""
-    }); 
+    });
   }
 
   closeEdit() {
@@ -131,5 +145,4 @@ class MyTodoApp extends React.Component {
     );
   }
 }
-
 ReactDOM.render(<MyTodoApp />, document.getElementById("root"));
