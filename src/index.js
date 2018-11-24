@@ -3,15 +3,14 @@ import ReactDOM from "react-dom";
 import "./index.css";
 
 let localStorageArr;
-function setLocalStorage() {
+const setLocalStorage = (function() {
   if (JSON.parse(window.localStorage.getItem("lsArray")) === null) {
     localStorageArr = [];
   }
   else {
     localStorageArr = JSON.parse(window.localStorage.getItem("lsArray"));
   }
-}
-setLocalStorage();
+})();
 
 class MyTodoApp extends React.Component {
   constructor(props) {
@@ -30,7 +29,6 @@ class MyTodoApp extends React.Component {
     this.updateItem = this.updateItem.bind(this);
     this.closeEdit = this.closeEdit.bind(this);
   }
-  
   handleInput(event) {
     if (event.target.value.length === 31) {
       this.setState({
@@ -53,7 +51,6 @@ class MyTodoApp extends React.Component {
       return;
     }
   }
-  
   handleSubmit(event) {
     event.preventDefault();
     const regEx = /\w/;
@@ -81,7 +78,6 @@ class MyTodoApp extends React.Component {
       input: ""
     });
   }
-
   removeItem(event) {
     const remove = [...this.state.items];
     remove.splice(remove.indexOf(event.target.id), 1);
@@ -90,7 +86,6 @@ class MyTodoApp extends React.Component {
       items: [...remove]
     });
   }
-
   editItem(event) {
     this.setState({
       edit: true,
@@ -98,7 +93,6 @@ class MyTodoApp extends React.Component {
       updateLi: event.target.id
     });
   }
-
   updateItem(event) {
     event.preventDefault();
     const newInfo = [...this.state.items];
@@ -112,13 +106,11 @@ class MyTodoApp extends React.Component {
       updateLi: ""
     });
   }
-
   closeEdit() {
     this.setState({
       edit: false
     });
   }
-
   render() {
     let list;
     if (this.state.edit !== true) {
@@ -128,7 +120,10 @@ class MyTodoApp extends React.Component {
     }
     let Update;
     if (this.state.edit === true) {
-      Update = <form id="updateForm" onSubmit={this.updateItem}><input id="updateInput" value={this.state.updateLi} onChange={this.handleInput}></input><br /><div id="ubd"><button id="updateButton">Update</button></div><button id="closeButton">X</button></form>;
+      Update = <form id="updateForm" onSubmit={this.updateItem}>
+                 <div><input id="updateInput" value={this.state.updateLi} onChange={this.handleInput}></input></div><br />
+                 <div id="ubd"><button id="updateButton">Update</button></div><div><button id="closeButton">X</button></div>
+              </form>;
     } else {
         Update = null;
     }
@@ -144,5 +139,5 @@ class MyTodoApp extends React.Component {
       </div>
     );
   }
-}
+} 
 ReactDOM.render(<MyTodoApp />, document.getElementById("root"));

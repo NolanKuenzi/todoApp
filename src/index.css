@@ -108,6 +108,7 @@ button:hover {
   margin-right: 0.5em;
   height: 2em;
   width: 3em;
+  bottom: 1.5em;
   text-align: center;
   background-color: white;
 }
